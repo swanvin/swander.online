@@ -1,0 +1,86 @@
+from reportlab.lib.pagesizes import landscape, A4
+from reportlab.lib import colors
+from reportlab.lib.units import inch
+from reportlab.pdfgen import canvas
+
+c = canvas.Canvas("SWANDER_Lightpaper_v1.0.pdf", pagesize=landscape(A4))
+width, height = landscape(A4)
+
+# --- Background ---
+c.setFillColorRGB(0.05, 0.05, 0.06)
+c.rect(0, 0, width, height, fill=True, stroke=False)
+
+# --- Header ---
+c.setFont("Helvetica-Bold", 26)
+c.setFillColorRGB(0.8, 0.8, 0.8)        # silver gradient look
+c.drawString(inch, height - 1.2*inch, "SWANDER / $SWND — The Federation of Flight")
+
+# --- Federation Seal placeholder ---
+c.setFillColor(colors.whitesmoke)
+c.circle(width - 1.4*inch, height - 1.2*inch, 0.6*inch, fill=0)
+
+# --- Section titles & body text ---
+text = c.beginText(inch, height - 2.0*inch)
+text.setFont("Helvetica-Bold", 16)
+text.setFillColorRGB(0.75, 0.66, 1.0)
+text.textLine("1. Introduction")
+text.setFont("Helvetica", 12)
+text.setFillColor(colors.whitesmoke)
+text.textLines("""
+SWANDER is the meme that learned to fly — a project built on humor, integrity, and community creativity.
+""")
+
+text.setFont("Helvetica-Bold", 16)
+text.setFillColorRGB(0.75, 0.66, 1.0)
+text.textLine("\n2. Tokenomics")
+text.setFont("Helvetica", 12)
+text.setFillColor(colors.whitesmoke)
+text.textLines("""
+• Total Supply: 1,000,000,000 $SWND
+• Network: Solana
+• Creator Fee: 0%
+• Buy/Sell Tax: 0%
+• Initial Burn: 40%
+• Liquidity Lock: 1 year minimum
+• Community Reserve: 20%
+• Development Treasury: 10%
+• Holder Rewards: 10%
+""")
+
+text.setFont("Helvetica-Bold", 16)
+text.setFillColorRGB(0.75, 0.66, 1.0)
+text.textLine("\n3. Roadmap")
+text.setFont("Helvetica", 12)
+text.setFillColor(colors.whitesmoke)
+text.textLines("""
+Phase I — Genesis Flight
+Phase II — The Flock Awakens
+Phase III — The Great Migration
+Phase IV — The Sky Beyond
+""")
+
+text.setFont("Helvetica-Bold", 16)
+text.setFillColorRGB(0.75, 0.66, 1.0)
+text.textLine("\n4. Governance & Ethos")
+text.setFont("Helvetica", 12)
+text.setFillColor(colors.whitesmoke)
+text.textLines("""
+SWANDER operates as a Federation — a decentralized collective that rewards creativity and integrity.
+""")
+
+text.setFont("Helvetica-Bold", 16)
+text.setFillColorRGB(0.75, 0.66, 1.0)
+text.textLine("\n5. Closing Statement")
+text.setFont("Helvetica-Oblique", 13)
+text.setFillColor(colors.whitesmoke)
+text.textLine("“When they wander, we SWANDER.”")
+c.drawText(text)
+
+# --- Footer ---
+c.setFont("Helvetica", 10)
+c.setFillColorRGB(0.6, 0.6, 0.6)
+c.drawCentredString(width / 2, 0.5*inch,
+    "© 2025 SWANDER / Swan Labs Division — The Federation of Flight")
+
+c.save()
+print("✅ SWANDER_Lightpaper_v1.0.pdf generated successfully!")
