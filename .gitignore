@@ -1,0 +1,61 @@
+# ---------------------------
+# SWANDER Federation .gitignore
+# ---------------------------
+
+# OS & system files
+.DS_Store
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# Node / package managers (if added later)
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Environment / secrets
+.env
+.env.local
+.env.*.local
+
+# Logs
+*.log
+logs/
+*.tmp
+
+# Editor folders
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Python cache (if used for generation scripts)
+__pycache__/
+*.py[cod]
+
+# Build & deploy outputs
+dist/
+build/
+out/
+.vercel/
+.next/
+.cache/
+
+# OS backups or temporary files
+*~
+*.bak
+*.old
+*.orig
+*.tmp
+
+# Misc
+assets/*.psd
+assets/*.xcf
+assets/*.ai
+assets/*.zip
+
+# Optional — ignore local notes
+notes.txt
+todo.txt
